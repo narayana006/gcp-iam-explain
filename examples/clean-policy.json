@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "group:data-eng@example.com"
+      ],
+      "role": "roles/bigquery.dataEditor"
+    },
+    {
+      "members": [
+        "serviceAccount:etl-runner@acme-analytics-5678.iam.gserviceaccount.com"
+      ],
+      "role": "roles/bigquery.jobUser"
+    },
+    {
+      "members": [
+        "group:analysts@example.com"
+      ],
+      "role": "roles/bigquery.dataViewer"
+    }
+  ],
+  "etag": "BwYF1a2b3c4=",
+  "version": 1
+}

@@ -1,0 +1,86 @@
+{
+  "auditConfigs": [
+    {
+      "auditLogConfigs": [
+        {"logType": "DATA_READ"},
+        {"logType": "DATA_WRITE"}
+      ],
+      "service": "storage.googleapis.com"
+    }
+  ],
+  "bindings": [
+    {
+      "members": [
+        "group:platform-admins@example.com",
+        "user:alice@example.com"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "serviceAccount:123456789012-compute@developer.gserviceaccount.com",
+        "user:contractor.bob@gmail.com"
+      ],
+      "role": "roles/editor"
+    },
+    {
+      "members": [
+        "group:developers@example.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    },
+    {
+      "condition": {
+        "description": "Temporary access for the Q4 migration",
+        "expression": "request.time < timestamp(\"2025-12-31T00:00:00Z\")",
+        "title": "expires-2025-12-31"
+      },
+      "members": [
+        "user:carol@partner-example.net"
+      ],
+      "role": "roles/storage.admin"
+    },
+    {
+      "members": [
+        "deleted:user:dave@example.com?uid=123456789012345678901",
+        "serviceAccount:deploy-bot@acme-prod-1234.iam.gserviceaccount.com"
+      ],
+      "role": "roles/run.admin"
+    },
+    {
+      "members": [
+        "serviceAccount:acme-prod-1234.svc.id.goog[payments/api]"
+      ],
+      "role": "roles/secretmanager.secretAccessor"
+    },
+    {
+      "members": [
+        "principalSet://iam.googleapis.com/projects/123456789012/locations/global/workloadIdentityPools/github/attribute.repository/example-org/infra"
+      ],
+      "role": "roles/iam.workloadIdentityUser"
+    },
+    {
+      "members": [
+        "allAuthenticatedUsers"
+      ],
+      "role": "roles/run.invoker"
+    },
+    {
+      "members": [
+        "domain:example.com"
+      ],
+      "role": "roles/viewer"
+    },
+    {
+      "members": [
+        "group:sre@example.com",
+        "user:erin@example.com",
+        "user:frank@example.com",
+        "user:grace@example.com"
+      ],
+      "role": "roles/compute.admin"
+    }
+  ],
+  "etag": "BwYKk4l2Uq0=",
+  "version": 3
+}
